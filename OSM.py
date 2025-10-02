@@ -7,17 +7,7 @@ nodes, edges = ox.graph_to_gdfs(G_drive)
 print(edges.columns)
 
 # Show first rows (includes lat/lng geometry)
-print(edges[['u', 'v', 'name', 'highway', 'length']].head())
+print(edges[['name', 'highway', 'length']].head())
 
 # Save to GeoJSON (can open in QGIS or GIS tools)
 edges.to_file("arlington_bike_lanes.geojson", driver="GeoJSON")
-'''
-import osmnx as ox
-import geopandas as gpd
-
-# Get Arlington boundary from OpenStreetMap
-gdf = ox.geocode_to_gdf("Arlington County, Virginia, USA")
-
-# Clip raster to Arlington
-clipped = rds.rio.clip(gdf.geometry, gdf.crs)
-'''
